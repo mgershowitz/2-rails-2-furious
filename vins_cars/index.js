@@ -14,5 +14,5 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.use('*', (req, res) => res.sendFile(patah.resolve(__dirname, 'dist', 'index.html')));
+app.use('*', (req, res) => res.sendFile(path.resolve(__dirname, 'dist', 'index.html')));
 app.listen(port, () => console.log('server at', port))
