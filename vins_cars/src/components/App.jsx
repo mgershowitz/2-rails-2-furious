@@ -1,40 +1,38 @@
 import React, { Component } from 'react';
+const axios = require('axios');
 
 export default class App extends Component {
   constructor(props){
     super(props);
-    this.getCars = this.getCars.bind(this)
     this.state = {
-      cars: []
+      cars: [{ brand: 'honda', model: 'civic' }]
     }
+  }
+
+  componentDidMount(){
+    this.getCars();
+    console.log('mounted');
     console.log(this.state);
   }
 
-  ComponentWillMount(){
-    this.getCars();
-  }
-
-  getCars() {
-    console.log('clicked');
-    return fetch('http://localhost:3000/cars',{
-      mode:'no-cors'
-    })
+  getCars(){
+    return fetch('http://localhost:3000/cars')
     .then(r => r.json())
-    // .then(cars => {
-    //   // this.setState({
-    //   //   cars: cars
-    //   // })
-    //   console.log(cars);
-    // })
-    .catch(err => console.log('=======',err))
+    .then(cars => {
+      this.setState({
+        cars: cars
+      })
+    })
   }
 
   render() {
-    this.getCars();
+    // this.getCars();
     return(
       <div>
         <button onClick={() => this.getCars()}>get the cars</button>
-        {this.props.children}
+        {this.props.children && React.cloneElement(this.props.children, {
+          state: this.state
+        })}
       </div>
     )
   }
