@@ -4,7 +4,7 @@ class CreateCars < ActiveRecord::Migration[5.0]
       t.string :brand
       t.string :model
       t.string :color
-      t.text :img_url
+      t.text :imgurl
       t.integer :age
       t.text :note
       t.timestamps

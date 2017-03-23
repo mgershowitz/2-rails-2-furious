@@ -1,1 +1,39 @@
-styles.css
+* {
+  text-align: center;
+}
+
+body {
+  margin: 0;
+}
+
+.book-ends {
+  width: 50px;
+}
+
+.car-park {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+h1 {
+  font-family: 'Faster One', cursive;
+  display: inline-block;
+  margin: 10px;
+}
+.cool-cars {
+  height: 400px;
+  width: calc(100%/3);
+  background-color: rebeccapurple;
+  color: #fff;
+}
+
+.img-container {
+  width:90%;
+  height: 30vh;
+  overflow: hidden;
+}
+
+.cool-cars img {
+  width: 100%;
+}

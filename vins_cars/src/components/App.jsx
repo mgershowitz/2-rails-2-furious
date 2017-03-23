@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-const axios = require('axios');
+import styles from './styles.css';
 
 export default class App extends Component {
   constructor(props){
@@ -29,7 +29,6 @@ export default class App extends Component {
     // this.getCars();
     return(
       <div>
-        <button onClick={() => this.getCars()}>get the cars</button>
         {this.props.children && React.cloneElement(this.props.children, {
           state: this.state
         })}
